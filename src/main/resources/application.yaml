@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: The-Ca-Nhan
+  datasource:
+    url: "jdbc:mysql://localhost:3306/MyCard"
+    username: root
+    password: root
