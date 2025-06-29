@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,7 +31,7 @@ public class Card {
             mappedBy = "card"
 
     )
-    private List<Orders> orders ;
+    private List<Orders> orders = new ArrayList<>() ;
 
 
 }

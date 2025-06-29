@@ -1,8 +1,11 @@
 package com.example.The_Ca_Nhan.Entity;
 
+import com.example.The_Ca_Nhan.Properties.MediaEntityType;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -15,12 +18,14 @@ public class MediaFiles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mediaId ;
-    private String entityType ;
+    @Enumerated(EnumType.STRING)
+    private MediaEntityType entityType;
     private String fileType ;
     private String fileName;
     private int entityId ;
     private String link ;
-    private Date updateDate ;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime updateDate ;
     @ManyToOne(
             fetch = FetchType.LAZY ,
             cascade = {
@@ -33,4 +38,5 @@ public class MediaFiles {
     )
     @JoinColumn(name = "userId")
     private Users users ;
+
 }

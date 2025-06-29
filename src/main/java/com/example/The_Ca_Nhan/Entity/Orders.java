@@ -5,6 +5,7 @@ import jdk.dynalink.linker.LinkerServices;
 import lombok.*;
 import org.springframework.security.core.userdetails.User;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,19 +24,19 @@ public class Orders {
     private int totalAmount ;
     private String status ;
     private String address ;
-    private Date ordersDate ;
-    @OneToMany(
-            fetch = FetchType.LAZY ,
+    private LocalDate ordersDate ;
+    @OneToOne(
+            fetch = FetchType.LAZY,
             cascade = {
-                    CascadeType.DETACH ,
-                    CascadeType.MERGE ,
-                    CascadeType.PERSIST ,
-                    CascadeType.REFRESH
-            } ,
-            mappedBy = "orders"
-
+                    CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.PERSIST,
+                    CascadeType.REFRESH,
+                    CascadeType.REMOVE
+            }
     )
-    private List<Payment> payments = new ArrayList<>();
+    @JoinColumn(name = "payment_id")
+    private Payment payment;
     @ManyToOne(
             fetch = FetchType.LAZY ,
             cascade = {

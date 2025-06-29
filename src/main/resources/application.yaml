@@ -1,7 +1,69 @@
 spring:
   application:
-    name: The-Ca-Nhan
+    name: intelligent-card
   datasource:
     url: "jdbc:mysql://localhost:3306/MyCard"
     username: root
     password: root
+  redis:
+    host: localhost
+    port: 6379
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/intelligent-card
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your.email@gmail.com
+    password: your-app-password
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+    from: Tamn0443@gmail.com
+cloud:
+  aws:
+    credentials:
+      access-key: YOUR_ACCESS_KEY
+      secret-key: YOUR_SECRET_KEY
+    region:
+      static: ap-southeast-1
+    stack:
+      auto: false
+    s3:
+      bucket: your-bucket-name
+bucket4j:
+  enabled: true
+  filters:
+    - cache-name: localCache
+      url: /api/auth/login
+      rate-limits:
+        - bandwidths:
+            - capacity: 5
+              refill-tokens: 5
+              refill-period: 10
+              refill-unit: seconds
+    - cache-name: localCache
+      url: /api/auth/refresh
+      rate-limits:
+        - bandwidths:
+            - capacity: 5
+              refill-tokens: 5
+              refill-period: 10
+              refill-unit: seconds
+
+idp:
+  url: http://localhost:8081
+  client-id: client_Id
+  client-secret: Client-secret
+  realm: security-keycloak
+
+#Config Qr
+Qr:
+  width: 300
+  height: 300
+

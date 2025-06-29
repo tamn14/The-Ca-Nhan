@@ -3,6 +3,7 @@ package com.example.The_Ca_Nhan.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,17 +18,18 @@ public class Payment {
     private int payId ;
     private String method ;
     private String status ;
-    private Date payDate ;
-    @ManyToOne(
+    private LocalDate payDate ;
+    @OneToOne(
             fetch = FetchType.LAZY ,
             cascade = {
                     CascadeType.DETACH ,
                     CascadeType.PERSIST ,
                     CascadeType.MERGE ,
                     CascadeType.REFRESH
-            }
+            },
+            mappedBy = "payment"
 
     )
-    @JoinColumn(name = "orderId")
+
     private Orders orders ;
 }

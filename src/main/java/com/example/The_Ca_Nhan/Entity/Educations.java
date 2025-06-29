@@ -3,7 +3,9 @@ package com.example.The_Ca_Nhan.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -17,8 +19,8 @@ public class Educations {
     private int eduId ;
     private String schoolName ;
     private String degree ;
-    private Date startDate ;
-    private Date endDate ;
+    private LocalDate startDate ;
+    private LocalDate endDate ;
     private String description ;
     @ManyToOne(
             fetch = FetchType.LAZY ,
@@ -32,4 +34,6 @@ public class Educations {
     )
     @JoinColumn(name = "userId")
     private Users users ;
+
+
 }

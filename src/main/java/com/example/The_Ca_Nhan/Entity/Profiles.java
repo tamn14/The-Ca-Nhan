@@ -16,10 +16,14 @@ public class Profiles {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int profileId ;
     private String summary  ;
+    @ElementCollection
+    @CollectionTable(name = "profile_hobbies", joinColumns = @JoinColumn(name = "profile_id"))
     private List<String>  hobby ;
+    @ElementCollection
+    @CollectionTable(name = "profile_website", joinColumns = @JoinColumn(name = "profile_id"))
     private List<String> website ;
     @OneToOne
-    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Users users ;
 
 }
