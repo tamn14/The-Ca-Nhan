@@ -17,9 +17,8 @@ import java.util.List;
 
 })
 public interface SkillMapper {
-    @Mapping(source = "name" ,target = "name" )
-    @Mapping(source = "level" ,target = "level" )
-    @Mapping(source = "users", target = "usersResponse")
+
+    @Mapping(source = "skills.users", target = "usersResponse")
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     SkillResponse toDTO (Skills skills ,  List<MediaFiles> mediaFiles)  ;
 

@@ -8,20 +8,9 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring" )
 public interface MediaFilesMapper {
-    @Mapping(source = "mediaId" ,target = "mediaId" )
-    @Mapping(source = "entityType" ,target = "entityType" )
-    @Mapping(source = "entityId" ,target = "entityId" )
-    @Mapping(source = "fileType", target = "fileType")
-    @Mapping(source = "fileName", target = "fileName")
-    @Mapping(source = "link", target = "link")
-    @Mapping(source = "updateDate", target = "updateDate")
     MediaFileResponse toDTO (MediaFiles mediaFiles)  ;
 
 
-    @Mapping(source = "entityType" ,target = "entityType" )
-    @Mapping(source = "entityId" ,target = "entityId" )
-    @Mapping(source = "fileType", target = "fileType")
-    @Mapping(source = "fileName", target = "fileName")
-    @Mapping(source = "link", target = "link")
+
     MediaFiles toEntity (MediaFileCreateRequest request) ;
 }

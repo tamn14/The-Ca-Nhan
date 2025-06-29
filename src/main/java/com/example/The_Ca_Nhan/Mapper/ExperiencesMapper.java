@@ -17,12 +17,7 @@ import java.util.List;
 })
 public interface ExperiencesMapper {
     // mapping from Entity to DTO
-    @Mapping(source = "name" ,target = "name" )
-    @Mapping(source = "position" ,target = "position" )
-    @Mapping(source = "description" ,target = "description" )
-    @Mapping(source = "startDate" ,target = "startDate" )
-    @Mapping(source = "endDate" ,target = "endDate" )
-    @Mapping(source = "users", target = "usersResponse")
+    @Mapping(source = "experiences.users", target = "usersResponse")
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     ExperiencesResponse toDTO (Experiences experiences, List<MediaFiles> mediaFiles)  ;
 

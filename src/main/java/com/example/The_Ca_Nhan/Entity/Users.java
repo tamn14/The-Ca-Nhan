@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -24,10 +25,12 @@ public class Users {
     private String firstName ;
     private String email ;
     private String address ;
-    private Date createAt ;
+    private LocalDate createAt ;
     private boolean enable;
     private String url ;
     private boolean isPayment ;
+    private LocalDate deleteAt ;
+
 
    
 

@@ -16,14 +16,8 @@ import org.mapstruct.Mapping;
 })
 public interface OrdersMapper {
     // mapping from Entity to DTO
-    @Mapping(source = "orderType" ,target = "orderType" )
-    @Mapping(source = "totalAmount" ,target = "totalAmount" )
-    @Mapping(source = "status" ,target = "status" )
-    @Mapping(source = "address" ,target = "address" )
-    @Mapping(source = "ordersDate" ,target = "ordersDate" )
-    @Mapping(source = "payment", target = "paymentResponse")
-    @Mapping(source = "users", target = "usersResponse")
-    @Mapping(source = "card", target = "cardResponse")
+    @Mapping(source = "orders.users", target = "usersResponse")
+    @Mapping(source = "orders.card", target = "cardResponse")
     OrdersResponse toDTO (Orders orders)  ;
 
     default Orders toEntity (OrdersRequest request) {

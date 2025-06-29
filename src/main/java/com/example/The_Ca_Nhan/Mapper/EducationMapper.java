@@ -16,12 +16,7 @@ import java.util.List;
 })
 public interface EducationMapper {
     // mapping from Entity to  DTO
-    @Mapping(source = "schoolName" ,target = "schoolName" )
-    @Mapping(source = "degree" ,target = "degree" )
-    @Mapping(source = "startDate" ,target = "startDate" )
-    @Mapping(source = "endDate" ,target = "endDate" )
-    @Mapping(source = "description" ,target = "description" )
-    @Mapping(source = "users", target = "usersResponse")
+    @Mapping(source = "educations.users", target = "usersResponse")
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     EducationResponse toDTO (Educations educations , List<MediaFiles> mediaFiles)  ;
 

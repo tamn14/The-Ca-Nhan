@@ -18,10 +18,8 @@ import java.util.List;
 })
 public interface ProfilesMapper {
 
-    @Mapping(source = "summary" ,target = "summary" )
-    @Mapping(source = "hobby" ,target = "hobby" )
-    @Mapping(source = "website" ,target = "website" )
-    @Mapping(source = "users", target = "usersResponse")
+
+    @Mapping(source = "profiles.users", target = "usersResponse")
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     ProfilesResponse toDTO (Profiles profiles, List<MediaFiles> mediaFiles)  ;
 

@@ -2,6 +2,7 @@ package com.example.The_Ca_Nhan.DTO.Response;
 
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Setter
@@ -10,13 +11,13 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 public class UsersResponse {
-    private String userName ;
     private String lastName ;
     private String firstName ;
     private String email ;
     private String address ;
-    private Date createAt ;
+    private LocalDate createAt ;
     private boolean enable;
     private String url ;
     private boolean isPayment ;
+    private LocalDate deleteAt ;
 }

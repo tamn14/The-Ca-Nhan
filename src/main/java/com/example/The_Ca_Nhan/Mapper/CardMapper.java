@@ -9,9 +9,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CardMapper {
     // mapping from Entity to  DTO
-    @Mapping(source = "name" ,target = "name" )
-    @Mapping(source = "description" ,target = "description" )
-    @Mapping(source = "price" ,target = "price" )
     CardResponse toDTO (Card card) ;
 
     // mapping from DTO to Entity

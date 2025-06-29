@@ -11,13 +11,8 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring" )
 public interface PaymentMapper {
     // mapping from Entity to DTO
-    @Mapping(source = "method" ,target = "method" )
-    @Mapping(source = "status" ,target = "status" )
-    @Mapping(source = "payDate" ,target = "payDate" )
     PaymentResponse toDTO (Payment payment)  ;
 
-    @Mapping(source = "method" ,target = "method" )
-    @Mapping(source = "status" ,target = "status" )
-    @Mapping(source = "payDate" ,target = "payDate" )
+
     Payment toEntity (PaymentRequest request)  ;
 }

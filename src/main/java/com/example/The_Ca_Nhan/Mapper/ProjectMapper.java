@@ -18,9 +18,7 @@ import java.util.List;
 })
 public interface ProjectMapper {
 
-    @Mapping(source = "title" ,target = "title" )
-    @Mapping(source = "description" ,target = "description" )
-    @Mapping(source = "users", target = "usersResponse")
+    @Mapping(source = "projects.users", target = "usersResponse")
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     ProjectResponse toDTO (Projects projects, List<MediaFiles> mediaFiles)  ;
 
