@@ -1,38 +1,44 @@
 package com.example.The_Ca_Nhan.Service.Implemment;
 
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.ObjectMetadata;
+
 import com.example.The_Ca_Nhan.Exception.AppException;
 import com.example.The_Ca_Nhan.Exception.ErrorCode;
+import com.example.The_Ca_Nhan.Properties.AWSProperties;
 import com.example.The_Ca_Nhan.Service.Interface.S3Interface;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URL;
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class S3ServiceImpl implements S3Interface {
-    private final AmazonS3 amazonS3;
-    @Value("${cloud.aws.s3.bucket}")
-    private String bucketName;
+    private final S3Client s3Client;
+    private final AWSProperties awsProperties ;
 
 
     @Override
     public String uploadFile(MultipartFile file) {
         try {
             String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename() ;
-            ObjectMetadata metadata = new ObjectMetadata();
-            metadata.setContentType(file.getContentType());
-            metadata.setContentLength(file.getSize());
+            PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                    .bucket(awsProperties.getBucket())
+                    .key(fileName)
+                    .contentType(file.getContentType())
+                    .build();
+            s3Client.putObject(putObjectRequest,
+                    RequestBody.fromInputStream(file.getInputStream(), file.getSize()));
 
-            amazonS3.putObject(bucketName, fileName, file.getInputStream(), metadata);
-            return amazonS3.getUrl(bucketName, fileName).toString(); // URL ảnh
+            return s3Client.utilities()
+                    .getUrl(b -> b.bucket(awsProperties.getBucket()).key(fileName))
+                    .toString();
         }
         catch (IOException e) {
             throw new AppException(ErrorCode.S3_SERVICE_FAILED);
@@ -44,7 +50,11 @@ public class S3ServiceImpl implements S3Interface {
         try {
             URI uri = new URI(fileUrl) ;
             String key = uri.getPath().substring(1) ; // bo dau '/' dau tien
-            amazonS3.deleteObject(bucketName , key);
+            DeleteObjectRequest deleteRequest = DeleteObjectRequest.builder()
+                    .bucket(awsProperties.getBucket())
+                    .key(key)
+                    .build();
+            s3Client.deleteObject(deleteRequest);
         }
         catch (Exception e) {
             throw new AppException(ErrorCode.S3_SERVICE_FAILED);

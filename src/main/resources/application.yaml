@@ -28,14 +28,13 @@ spring:
 cloud:
   aws:
     credentials:
-      access-key: YOUR_ACCESS_KEY
-      secret-key: YOUR_SECRET_KEY
-    region:
-      static: ap-southeast-1
+      accessKey: YOUR_ACCESS_KEY
+      secretKey: YOUR_SECRET_KEY
     stack:
       auto: false
-    s3:
-      bucket: your-bucket-name
+    region:
+      staticValue: ap-southeast-1
+    bucket: your-bucket-name
 bucket4j:
   enabled: true
   filters:

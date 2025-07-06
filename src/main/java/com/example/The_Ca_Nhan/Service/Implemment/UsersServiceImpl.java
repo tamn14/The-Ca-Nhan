@@ -176,7 +176,7 @@ public class UsersServiceImpl implements UsersInterface {
     @Override
     @PreAuthorize( "hasRole('ADMIN')")
     public List<UsersResponse> getAllUsers() {
-        return usersRepository.findByDeletedAtIsNull()
+        return usersRepository.findByDeleteAtIsNull()
                 .stream().map(usersMapper::toDTO).toList();
     }
 

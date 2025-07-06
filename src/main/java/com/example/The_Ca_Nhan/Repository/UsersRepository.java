@@ -11,6 +11,6 @@ import java.util.List;
 public interface UsersRepository extends JpaRepository<Users, Integer> {
     public Users findByUserName(String usename) ;
     boolean existsByEmail(String email);
-    List<Users> findByDeletedAtIsNull();
+    List<Users> findByDeleteAtIsNull();
     Users findByKeycloakId (String id) ;
 }

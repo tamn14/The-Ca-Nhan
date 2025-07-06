@@ -44,9 +44,6 @@ public class OrderServiceImpl implements OrdersInterface {
     private final QrInterface qrInterface ;
     private final PaymentProperties paymentProperties ;
 
-    @Value("${Qr.width}")
-    private int widthQr ;
-    @Value("${Qr.height}")
 
     private Card getCardById(int id ) {
         return cardRepository.findById(id)

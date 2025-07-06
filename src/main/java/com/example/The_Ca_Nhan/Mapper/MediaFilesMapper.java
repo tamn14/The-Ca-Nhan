@@ -11,6 +11,5 @@ public interface MediaFilesMapper {
 
     MediaFileResponse toDTO (MediaFiles mediaFiles)  ;
 
-    @Mapping(target = "imageUrl", ignore = true) // ignore vì MultipartFile không ánh xạ trực tiếp sang entity
     MediaFiles toEntity (MediaFileCreateRequest request) ;
 }
