@@ -20,6 +20,9 @@ public interface EducationMapper {
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     EducationResponse toDTO (Educations educations , List<MediaFiles> mediaFiles)  ;
 
+    @Mapping(source = "educations.users", target = "usersResponse")
+    EducationResponse toDTO (Educations educations)  ;
+
     // mapping from DTO to Entity
     default Educations toEntity (EducationRequest request) {
        return Educations.builder()

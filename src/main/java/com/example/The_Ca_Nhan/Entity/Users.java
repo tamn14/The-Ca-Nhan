@@ -5,6 +5,8 @@ import lombok.*;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,17 +21,19 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id  ;
+    @Column(nullable = false, unique = true)
     private String userName ;
     private String keycloakId ;
     private String lastName ;
     private String firstName ;
+    @Column(nullable = false, unique = true)
     private String email ;
     private String address ;
     private LocalDate createAt ;
     private boolean enable;
-    private String url ;
-    private boolean isPayment ;
-    private LocalDate deleteAt ;
+    private String accountNumber ;
+    private String url ; // duong dan den web ca nhan
+    private LocalDateTime deleteAt ;
 
 
    
@@ -45,7 +49,7 @@ public class Users {
             mappedBy = "users"
 
     )
-    private List<Orders> orders ;
+    private List<Orders> orders = new ArrayList<>();
     @OneToMany(
             fetch = FetchType.LAZY ,
             cascade = {
@@ -57,7 +61,7 @@ public class Users {
             mappedBy = "users"
 
     )
-    private List<Experiences> experiences;
+    private List<Experiences> experiences = new ArrayList<>();
     @OneToMany(
             fetch = FetchType.LAZY ,
             cascade = {
@@ -69,7 +73,7 @@ public class Users {
             mappedBy = "users"
 
     )
-    private List<Projects> projects ;
+    private List<Projects> projects = new ArrayList<>() ;
     @OneToMany(
             fetch = FetchType.LAZY ,
             cascade = {
@@ -81,7 +85,7 @@ public class Users {
             mappedBy = "users"
 
     )
-    private List<Educations> educations ;
+    private List<Educations> educations = new ArrayList<>() ;
     @OneToMany(
             fetch = FetchType.LAZY ,
             cascade = {
@@ -93,7 +97,7 @@ public class Users {
             mappedBy = "users"
 
     )
-    private List<Skills> skills ;
+    private List<Skills> skills = new ArrayList<>() ;
     @OneToOne(mappedBy = "users")
     private Profiles profiles ;
     @OneToMany(
@@ -107,7 +111,7 @@ public class Users {
             mappedBy = "users"
 
     )
-    private List<MediaFiles> mediaFiles ;
+    private List<MediaFiles> mediaFiles = new ArrayList<>() ;
 
 
 

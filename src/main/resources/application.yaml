@@ -55,6 +55,8 @@ bucket4j:
               refill-tokens: 5
               refill-period: 10
               refill-unit: seconds
+url:
+  myself : http://localhost:8080
 
 idp:
   url: http://localhost:8081
@@ -67,3 +69,7 @@ Qr:
   width: 300
   height: 300
 
+#Config Payment
+payment:
+    bank-code: <name-bank>
+    bank-account: <bank-number>

@@ -1,5 +1,7 @@
 package com.example.The_Ca_Nhan.Entity;
 
+import com.example.The_Ca_Nhan.Properties.PaymentMethod;
+import com.example.The_Ca_Nhan.Properties.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,8 +18,8 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int payId ;
-    private String method ;
-    private String status ;
+    private PaymentMethod method ;
+    private PaymentStatus status ;
     private LocalDate payDate ;
     @OneToOne(
             fetch = FetchType.LAZY ,

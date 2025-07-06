@@ -6,4 +6,5 @@ import java.io.IOException;
 
 public interface QrInterface {
     public byte[] generateQRCodeToFile(String json , int width, int height)  throws WriterException, IOException;
+    public String buildVietQRUrl(String bankCode, String accountNumber, int amount, int orderId) ;
 }

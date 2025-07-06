@@ -13,6 +13,5 @@ import java.util.List;
 public class ProjectRequest {
     private String title  ;
     private String description ;
-    private int userId ;
     private List<MediaFileCreateRequest> mediaFiles ;
 }

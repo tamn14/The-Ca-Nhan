@@ -1,5 +1,9 @@
 package com.example.The_Ca_Nhan.DTO.Request;
 
+import com.example.The_Ca_Nhan.Properties.OrderType;
+import com.example.The_Ca_Nhan.Properties.OrdersStatus;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 import org.springframework.security.core.userdetails.User;
 
@@ -12,14 +16,15 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 public class OrdersRequest {
-    private String orderType ;
+    @Enumerated(EnumType.STRING)
+    private OrderType orderType ;
     private int totalAmount ;
-    private String status ;
+    @Enumerated(EnumType.STRING)
+    private OrdersStatus status ;
     private String address ;
     private LocalDate ordersDate ;
 
     private PaymentRequest paymentRequest ;
-    private int userId ;
     private int cardId ;
 
 

@@ -1,5 +1,9 @@
 package com.example.The_Ca_Nhan.DTO.Response;
 
+import com.example.The_Ca_Nhan.Properties.OrderType;
+import com.example.The_Ca_Nhan.Properties.OrdersStatus;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -10,9 +14,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class OrdersResponse {
-    private String orderType ;
+    @Enumerated(EnumType.STRING)
+    private OrderType orderType ;
     private int totalAmount ;
-    private String status ;
+    @Enumerated(EnumType.STRING)
+    private OrdersStatus status ;
     private String address ;
     private LocalDate ordersDate ;
 

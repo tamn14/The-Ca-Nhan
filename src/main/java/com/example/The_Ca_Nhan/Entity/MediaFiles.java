@@ -24,7 +24,6 @@ public class MediaFiles {
     private String fileName;
     private int entityId ;
     private String link ;
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime updateDate ;
     @ManyToOne(
             fetch = FetchType.LAZY ,

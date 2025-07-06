@@ -1,5 +1,9 @@
 package com.example.The_Ca_Nhan.DTO.Response;
 
+import com.example.The_Ca_Nhan.Properties.PaymentMethod;
+import com.example.The_Ca_Nhan.Properties.PaymentStatus;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -11,8 +15,9 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 public class PaymentResponse {
-
-    private String method ;
-    private String status ;
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod method ;
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus status ;
     private LocalDate payDate ;
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserCreationParam {
     String userName ;
-    String enabled ;
+    boolean enabled ;
     String email ;
 
     boolean emailVerified ;

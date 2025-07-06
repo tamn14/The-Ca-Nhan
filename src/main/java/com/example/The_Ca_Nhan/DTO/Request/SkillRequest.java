@@ -11,7 +11,6 @@ import java.util.List;
 @Builder
 public class SkillRequest {
     private String name ;
-    private int level  ;
-    private int userId ;
+    private Integer level  ;
     private List<MediaFileCreateRequest> mediaFiles ;
 }

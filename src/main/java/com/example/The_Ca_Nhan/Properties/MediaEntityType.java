@@ -4,5 +4,6 @@ public enum MediaEntityType {
     EDUCATION,
     PROJECT,
     EXPERIENCE,
-    SKILL
+    SKILL,
+    PROFILES
 }

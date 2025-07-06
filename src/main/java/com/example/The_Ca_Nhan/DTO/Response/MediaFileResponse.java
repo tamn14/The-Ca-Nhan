@@ -1,6 +1,8 @@
 package com.example.The_Ca_Nhan.DTO.Response;
 
 import com.example.The_Ca_Nhan.Properties.MediaEntityType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -11,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class MediaFileResponse {
-    private int mediaId;
+    @Enumerated(EnumType.STRING)
     private MediaEntityType entityType;
     private int entityId;
     private String fileType;

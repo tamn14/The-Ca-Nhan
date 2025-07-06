@@ -21,6 +21,9 @@ public interface ExperiencesMapper {
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     ExperiencesResponse toDTO (Experiences experiences, List<MediaFiles> mediaFiles)  ;
 
+    @Mapping(source = "experiences.users", target = "usersResponse")
+    ExperiencesResponse toDTO (Experiences experiences)  ;
+
 
     // mapping from DTO to entity
     default Experiences toEntity (ExperiencesRequest request) {

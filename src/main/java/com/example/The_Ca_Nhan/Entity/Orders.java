@@ -1,5 +1,7 @@
 package com.example.The_Ca_Nhan.Entity;
 
+import com.example.The_Ca_Nhan.Properties.OrderType;
+import com.example.The_Ca_Nhan.Properties.OrdersStatus;
 import jakarta.persistence.*;
 import jdk.dynalink.linker.LinkerServices;
 import lombok.*;
@@ -20,9 +22,9 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId ;
-    private String orderType ;
+    private OrderType orderType ;
     private int totalAmount ;
-    private String status ;
+    private OrdersStatus status ;
     private String address ;
     private LocalDate ordersDate ;
     @OneToOne(

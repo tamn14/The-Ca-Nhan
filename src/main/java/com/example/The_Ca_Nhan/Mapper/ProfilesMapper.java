@@ -23,6 +23,9 @@ public interface ProfilesMapper {
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     ProfilesResponse toDTO (Profiles profiles, List<MediaFiles> mediaFiles)  ;
 
+    @Mapping(source = "profiles.users", target = "usersResponse")
+    ProfilesResponse toDTO (Profiles profiles)  ;
+
     default Profiles toEntity(ProfilesRequest request) {
         return Profiles.builder()
                 .summary(request.getSummary())

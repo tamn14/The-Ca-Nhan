@@ -17,8 +17,7 @@ public class EducationRequest {
     private LocalDate startDate ;
     private LocalDate endDate ;
     private String description ;
-    // them education cho user nao
-    private int user ;
+
     // mediaFile cua education
     private List<MediaFileCreateRequest> mediaFiles ;
 }

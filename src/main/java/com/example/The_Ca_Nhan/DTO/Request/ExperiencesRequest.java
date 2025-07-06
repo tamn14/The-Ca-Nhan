@@ -13,10 +13,9 @@ import java.util.List;
 @Builder
 public class ExperiencesRequest {
     private String name ;
-    private int position  ;
+    private Integer position  ;
     private String description ;
     private LocalDate startDate ;
     private LocalDate endDate ;
-    private int user ;
     private List<MediaFileCreateRequest> mediaFiles ;
 }

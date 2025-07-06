@@ -22,6 +22,9 @@ public interface SkillMapper {
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     SkillResponse toDTO (Skills skills ,  List<MediaFiles> mediaFiles)  ;
 
+    @Mapping(source = "skills.users", target = "usersResponse")
+    SkillResponse toDTO (Skills skills )  ;
+
     default Skills toEntity (SkillRequest request) {
         return Skills.builder()
                 .name(request.getName())

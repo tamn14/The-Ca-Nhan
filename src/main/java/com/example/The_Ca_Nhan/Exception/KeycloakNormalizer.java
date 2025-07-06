@@ -32,7 +32,7 @@ public class KeycloakNormalizer {
             // lay noi dung loi tra ve
             var response = objectMapper.readValue(feignException.contentUTF8() , KeycloakError.class ) ;
             // kiem tra loi co nam trong danh sach loi co the xu ly
-            if(Objects.nonNull(response.getMessage()) && Objects.nonNull(errorCodeMap.get(response.getMessage()))) {
+            if (Objects.nonNull(response.getMessage()) && Objects.nonNull(errorCodeMap.get(response.getMessage()))) {
                 return new AppException(errorCodeMap.get(response.getMessage()));
             }
 

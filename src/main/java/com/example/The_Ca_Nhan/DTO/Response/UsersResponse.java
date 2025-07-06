@@ -3,6 +3,7 @@ package com.example.The_Ca_Nhan.DTO.Response;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Setter
@@ -18,6 +19,5 @@ public class UsersResponse {
     private LocalDate createAt ;
     private boolean enable;
     private String url ;
-    private boolean isPayment ;
-    private LocalDate deleteAt ;
+    private LocalDateTime deleteAt ;
 }

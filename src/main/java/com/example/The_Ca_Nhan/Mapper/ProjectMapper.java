@@ -22,6 +22,9 @@ public interface ProjectMapper {
     @Mapping(source = "mediaFiles", target = "mediaFiles")
     ProjectResponse toDTO (Projects projects, List<MediaFiles> mediaFiles)  ;
 
+    @Mapping(source = "projects.users", target = "usersResponse")
+    ProjectResponse toDTO (Projects project)  ;
+
     default Projects toEntity(ProjectRequest request) {
         return Projects.builder()
                 .title(request.getTitle())

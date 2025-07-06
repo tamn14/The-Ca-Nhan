@@ -20,6 +20,7 @@ public class Card {
     private String name ;
     private String description ;
     private int price  ;
+    private String url ; // luu img
     @OneToMany(
             fetch = FetchType.LAZY ,
             cascade = {

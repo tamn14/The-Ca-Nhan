@@ -13,7 +13,7 @@ import java.util.List;
 public interface OrdersInterface {
     public OrdersResponse insertOrders(OrdersRequest request) ;
     public void deleteOrders(int Id);
-    public List<MediaFileResponse> findAll() ;
-    public MediaFileResponse findById(int id) ;
-
+    public List<OrdersResponse> findAll() ;
+    public OrdersResponse findById(int id) ;
+    public byte[] QrForPayment (int width, int height , int orderId );
 }
